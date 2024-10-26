@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloader de Vídeo</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <h1>Downloader de Vídeo</h1>
+    <input type="text" id="videoUrl" placeholder="Cole a URL do vídeo aqui">
+    <button id="downloadButton">Baixar Vídeo</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('downloadButton').addEventListener('click', async () => {
+            const url = document.getElementById('videoUrl').value;
+            const response = await fetch('/.netlify/functions/baixarVideo', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url }),
+            });
+
+            const data = await response.json();
+            document.getElementById('result').innerText = data.message || data.error;
+        });
+    </script>
+</body>
+</html>
