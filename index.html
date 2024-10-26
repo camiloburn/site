@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download de Vídeos do YouTube</title>
+    <title>Baixar Vídeos do YouTube</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,14 +24,15 @@
 <body>
     <h1>Baixar Vídeo do YouTube</h1>
     <input type="text" id="videoUrl" placeholder="Cole o link do vídeo aqui">
-    <button onclick="downloadVideo()">Baixar Vídeo</button>
+    <button onclick="redirectToDownload()">Baixar Vídeo</button>
 
     <script>
-        function downloadVideo() {
+        function redirectToDownload() {
             const url = document.getElementById('videoUrl').value;
             if (url) {
-                // Aqui você pode adicionar a lógica para baixar o vídeo
-                alert('Função de download não implementada. URL: ' + url);
+                // Redirecionar para um serviço de download
+                const downloadUrl = `https://www.y2mate.com/youtube/${encodeURIComponent(url)}`;
+                window.open(downloadUrl, '_blank');
             } else {
                 alert('Por favor, insira um link de vídeo do YouTube.');
             }
