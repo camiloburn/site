@@ -47,6 +47,11 @@ button:hover {
     background-color: #3700ff;
 }
 
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
 footer {
     background-color: #d308fc; 
     color: white;
@@ -55,3 +60,4 @@ footer {
     margin-top: 20px; 
     width: 100%; 
 }
+
