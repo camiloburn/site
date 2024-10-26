@@ -3,29 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Downloader de Vídeo</title>
-    <link rel="stylesheet" href="static/style.css">
+    <title>Download de Vídeos do YouTube</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Downloader de Vídeo</h1>
-    <input type="text" id="videoUrl" placeholder="Cole a URL do vídeo aqui">
-    <button id="downloadButton">Baixar Vídeo</button>
-    <div id="result"></div>
+    <h1>Baixar Vídeo do YouTube</h1>
+    <input type="text" id="videoUrl" placeholder="Cole o link do vídeo aqui">
+    <button onclick="downloadVideo()">Baixar Vídeo</button>
 
     <script>
-        document.getElementById('downloadButton').addEventListener('click', async () => {
+        function downloadVideo() {
             const url = document.getElementById('videoUrl').value;
-            const response = await fetch('/.netlify/functions/baixarVideo', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ url }),
-            });
-
-            const data = await response.json();
-            document.getElementById('result').innerText = data.message || data.error;
-        });
+            if (url) {
+                // Aqui você pode adicionar a lógica para baixar o vídeo
+                alert('Função de download não implementada. URL: ' + url);
+            } else {
+                alert('Por favor, insira um link de vídeo do YouTube.');
+            }
+        }
     </script>
 </body>
 </html>
